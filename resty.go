@@ -41,7 +41,8 @@ func initRetryable() {
 	retryableClient = resty.New().
 		SetRetryCount(DefaultMaxRetryCount).
 		SetTimeout(DefaultTimeout).
-		SetRedirectPolicy(DefaultRedirectPolicy)
+		SetRedirectPolicy(DefaultRedirectPolicy).
+		SetRetryAfter(RetryAfter)
 
 	InitRestyHook(retryableClient)
 }
